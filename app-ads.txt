@@ -1,0 +1,4 @@
+# app-ads.txt для игры «Битва ниндзя» (Ninja Battle)
+# Замени pub-XXXXXXXXXXXXXXXX на свой ID издателя из AdMob (AdMob → Настройки → Информация об аккаунте → Идентификатор издателя).
+# Строку ниже AdMob покажет сам: Приложения → Просмотреть все → app-ads.txt → «Как настроить». Остальное в строке не меняй.
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

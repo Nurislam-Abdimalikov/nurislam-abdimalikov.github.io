@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Битва ниндзя — Ninja Battle</title>
+<meta name="description" content="Битва ниндзя — яркий аркадный файтинг для Android, iPhone и iPad: 30 уровней, 5 боссов, 6 ниндзя, выживание и дуэли.">
+<meta property="og:title" content="Битва ниндзя — Ninja Battle">
+<meta property="og:description" content="30 уровней, 6 ниндзя, боссы и дуэли. Открывай и прокачивай героев!">
+<meta property="og:image" content="https://nurislam-abdimalikov.github.io/assets/feature-ru.jpg">
+<meta name="theme-color" content="#0b0e16">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+@font-face{font-family:Russo;src:url(assets/fonts/RussoOne-Regular.ttf) format('truetype');font-display:swap}
+:root{--bg:#0b0e16;--card:#151a26;--line:#262e40;--text:#e8ecf4;--muted:#9aa4b8;--gold:#ffd27a;--green:#5ad16b;--blue:#9fe3ff;--red:#ff6b5a}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#2a2350 0%,rgba(42,35,80,0) 60%),var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
+a{color:var(--blue)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px;font-family:Russo,system-ui;font-size:20px;color:var(--gold);text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:12px}
+.lang{display:flex;gap:6px}
+.lang button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font:600 14px system-ui;cursor:pointer}
+.lang button.on{color:#1a1206;background:var(--gold);border-color:var(--gold)}
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;padding:28px 0 40px}
+h1{font-family:Russo,system-ui;font-size:clamp(40px,6vw,68px);line-height:1.02;margin:0 0 14px;color:#fff;text-shadow:0 4px 0 #3b2a10,0 0 40px rgba(255,190,90,.35)}
+h1 span{color:var(--gold)}
+.lead{font-size:20px;color:#d6dbea;margin:0 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:12px}
+.badge{display:flex;align-items:center;gap:10px;min-width:210px;padding:10px 18px;border-radius:14px;background:#000;border:1px solid #3a4258;color:#fff;text-decoration:none}
+.badge svg{width:28px;height:28px;flex:none}
+.badge small{display:block;font-size:11px;color:var(--muted);line-height:1.2;text-transform:uppercase;letter-spacing:.04em}
+.badge b{display:block;font-size:19px;line-height:1.2}
+.badge.soon{opacity:.75;cursor:default}
+.shot-main{width:100%;border-radius:18px;border:3px solid #1f2535;box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-weight:700}
+.stat b{color:var(--gold);font-family:Russo,system-ui;font-weight:400;margin-right:6px}
+h2{font-family:Russo,system-ui;font-weight:400;font-size:30px;margin:0 0 18px;color:#fff}
+section{padding:34px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.card h3{margin:0 0 6px;font-size:18px;color:var(--gold)}
+.card p{margin:0;color:#c9cfdd;font-size:15.5px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gallery img{width:100%;border-radius:14px;border:2px solid #1f2535;display:block}
+.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.safe .card{border-left:4px solid var(--green)}
+#support .card{display:flex;flex-direction:column;gap:6px}
+.mail{font-size:20px;font-weight:700}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:22px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
+@media (max-width:860px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.safe,.gallery{grid-template-columns:1fr}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.badge{min-width:0;flex:1 1 100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="./"><img src="assets/icon-192.png" alt=""><span data-t="brand">Битва ниндзя</span></a>
+    <div class="lang"><button data-lang="ru">RU</button><button data-lang="en">EN</button></div>
+  </header>
+
+  <div class="hero">
+    <div>
+      <h1 data-t="title" data-html>Битва<br><span>ниндзя</span></h1>
+      <p class="lead" data-t="lead">Яркий аркадный файтинг: проходи уровни на карте, побеждай боссов, открывай новых ниндзя и прокачивай их!</p>
+      <div class="badges">
+        <a class="badge soon" id="gp" aria-disabled="true">
+          <svg viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2z"/><path fill="#FBBC04" d="m17.3 15.5-3.5-3.5 3.5-3.5 4 2.3c1.1.6 1.1 1.8 0 2.4z"/><path fill="#4285F4" d="M17.3 15.5 13.8 12 3.6 22.2c.4.2.9.2 1.4-.1z"/><path fill="#EA4335" d="M17.3 8.5 5 1.9c-.5-.3-1-.3-1.4-.1L13.8 12z"/></svg>
+          <span><small data-t="gpSmall">Скоро в</small><b>Google Play</b></span>
+        </a>
+        <a class="badge soon" id="as" aria-disabled="true">
+          <svg viewBox="0 0 24 24"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.9-1.1-2.9-4.2zM13.9 5.3c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
+          <span><small data-t="asSmall">Скоро в</small><b>App Store</b></span>
+        </a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>30</b><span data-t="s1">уровней</span></div>
+        <div class="stat"><b>5</b><span data-t="s2">боссов</span></div>
+        <div class="stat"><b>6</b><span data-t="s3">ниндзя</span></div>
+        <div class="stat"><b>2</b><span data-t="s4">языка</span></div>
+      </div>
+    </div>
+    <img class="shot-main" data-shot="01-home" src="assets/ru-01-home.jpg" alt="">
+  </div>
+
+  <section>
+    <h2 data-t="featTitle">Что в игре</h2>
+    <div class="grid">
+      <div class="card"><h3 data-t="f1h">🗺️ Карта: 30 уровней</h3><p data-t="f1">Бамбуковая роща, храм сакуры, ночные крыши, снежный перевал и огненная крепость. До 3 звёзд за каждый уровень.</p></div>
+      <div class="card"><h3 data-t="f2h">👹 5 боссов</h3><p data-t="f2">В конце каждого мира ждёт босс со своими приёмами. Прокачай героя — и вперёд!</p></div>
+      <div class="card"><h3 data-t="f3h">🥷 6 ниндзя</h3><p data-t="f3">Торнадо, огненный дракон, гнев грома, ледяная буря, теневые клоны и буря лепестков.</p></div>
+      <div class="card"><h3 data-t="f4h">⬆️ Прокачка</h3><p data-t="f4">Улучшай здоровье, силу и энергию каждого героя за монеты, заработанные в боях.</p></div>
+      <div class="card"><h3 data-t="f5h">⚔️ Выживание и дуэли</h3><p data-t="f5">Бесконечные волны врагов или бой один на один с ниндзя-компьютером.</p></div>
+      <div class="card"><h3 data-t="f6h">🎁 Подарки каждый день</h3><p data-t="f6">Заходи каждый день — на седьмой день самый большой подарок. Сундуки за звёзды!</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-t="galTitle">Скриншоты</h2>
+    <div class="gallery">
+      <img data-shot="03-battle" src="assets/ru-03-battle.jpg" alt="" loading="lazy">
+      <img data-shot="05-boss" src="assets/ru-05-boss.jpg" alt="" loading="lazy">
+      <img data-shot="04-heroes" src="assets/ru-04-heroes.jpg" alt="" loading="lazy">
+      <img data-shot="07-duel" src="assets/ru-07-duel.jpg" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <section>
+    <h2 data-t="safeTitle">Честно и безопасно</h2>
+    <div class="safe">
+      <div class="card"><h3 data-t="g1h">Для детей и семей</h3><p data-t="g1">Реклама Google AdMob — только детская и без персонализации. Ролики за награду — по желанию.</p></div>
+      <div class="card"><h3 data-t="g2h">Без регистрации</h3><p data-t="g2">Никаких имён и e-mail: прогресс хранится только на устройстве. Можно играть без интернета.</p></div>
+      <div class="card"><h3 data-t="g3h">Всё открывается бесплатно</h3><p data-t="g3">Все герои и улучшения открываются за монеты, заработанные в боях.</p></div>
+      <div class="card"><h3 data-t="g4h">Покупки — только со взрослыми</h3><p data-t="g4">На iPhone и iPad покупки защищены «родительским замком». В версии для Android платных покупок нет.</p></div>
+    </div>
+  </section>
+
+  <section id="support">
+    <h2 data-t="supTitle">Поддержка</h2>
+    <div class="card">
+      <span data-t="supText">Есть вопрос, нашли ошибку или есть идея? Напишите — отвечу на русском или английском.</span>
+      <a class="mail" href="mailto:nurislanabdimalikov@gmail.com">nurislanabdimalikov@gmail.com</a>
+    </div>
+    <details><summary data-t="q1">Как вернуть «Без рекламы на 30 дней» на новом iPhone или iPad?</summary><p data-t="a1">Войдите в тот же Apple ID, откройте Магазин (или Настройки) и нажмите «Восстановить покупки» — оставшиеся дни вернутся.</p></details>
+    <details><summary data-t="q2">Как начать игру заново?</summary><p data-t="a2">Настройки → «Сбросить прогресс». Прогресс хранится только на устройстве, поэтому при удалении игры он тоже удаляется.</p></details>
+    <details><summary data-t="q3">Почему кнопка «Смотреть» серая?</summary><p data-t="a3">Рекламный ролик сейчас не загрузился (нет интернета или нет рекламы в вашем регионе) или вы уже посмотрели все ролики на сегодня. Попробуйте позже.</p></details>
+  </section>
+
+  <footer>
+    <span>© 2026 Nurislam Abdimalikov (<span data-t="devRu">Нурислам Абдималиков</span>)</span>
+    <span><a id="pp" href="privacy-policy-ru.html" data-t="pp">Политика конфиденциальности</a> · <a href="#support" data-t="sup">Поддержка</a></span>
+  </footer>
+</div>
+
+<script>
+// Когда игра выйдет — вставь ссылки сюда, и значки «Скоро» станут кнопками «Скачать»:
+const GOOGLE_PLAY_URL = ''; // например https://play.google.com/store/apps/details?id=com.bitvaninja.game
+const APP_STORE_URL = '';   // например https://apps.apple.com/app/id1234567890
+
+const T = {
+  en: {
+    brand: 'Ninja Battle', title: 'Ninja<br><span>Battle</span>',
+    lead: 'A bright arcade fighting game: clear levels on the map, defeat bosses, unlock new ninjas and upgrade them!',
+    gpSmall: 'Coming soon to', asSmall: 'Coming soon to', s1: 'levels', s2: 'bosses', s3: 'ninjas', s4: 'languages',
+    featTitle: "What's inside", f1h: '🗺️ Map: 30 levels', f1: 'Bamboo Grove, Sakura Temple, Night Rooftops, Snowy Pass and Fire Fortress. Up to 3 stars on every level.',
+    f2h: '👹 5 bosses', f2: 'Every world ends with a boss with its own moves. Upgrade your hero and go!',
+    f3h: '🥷 6 ninjas', f3: 'Tornado, Fire Dragon, Thunder Wrath, Ice Storm, Shadow Clones and Petal Storm.',
+    f4h: '⬆️ Upgrades', f4: "Boost every hero's health, power and energy with coins earned in battles.",
+    f5h: '⚔️ Survival and duels', f5: 'Endless waves of enemies or a one-on-one fight against a computer ninja.',
+    f6h: '🎁 Daily gifts', f6: 'Come back every day — the biggest gift waits on day seven. Star chests too!',
+    galTitle: 'Screenshots', safeTitle: 'Fair and safe',
+    g1h: 'For kids and families', g1: 'Google AdMob ads are child-directed and non-personalized. Reward videos are optional.',
+    g2h: 'No sign-up', g2: 'No names or e-mails: progress is stored only on the device. Works offline.',
+    g3h: 'Everything unlocks for free', g3: 'Every hero and upgrade unlocks with coins earned in battles.',
+    g4h: 'Purchases only with a grown-up', g4: 'On iPhone and iPad purchases are protected by a parental gate. The Android version has no paid purchases.',
+    supTitle: 'Support', supText: 'Have a question, found a bug or have an idea? Write to me — I answer in English or Russian.',
+    q1: 'How do I get "No Ads for 30 Days" back on a new iPhone or iPad?', a1: 'Sign in with the same Apple ID, open the Shop (or Settings) and tap "Restore purchases" — the remaining days come back.',
+    q2: 'How do I start over?', a2: 'Settings → "Reset progress". Progress is stored only on the device, so deleting the game deletes it too.',
+    q3: 'Why is the "Watch" button grey?', a3: "The video ad didn't load (no internet or no ads in your region) or you have watched all videos for today. Try again later.",
+    devRu: 'Нурислам Абдималиков', pp: 'Privacy Policy', sup: 'Support', ppHref: 'privacy-policy-en.html',
+  },
+};
+const ru = {}; document.querySelectorAll('[data-t]').forEach(el => { ru[el.dataset.t] = el.innerHTML; });
+ru.ppHref = 'privacy-policy-ru.html'; ru.gpSmall = 'Скоро в'; ru.asSmall = 'Скоро в';
+T.ru = ru;
+function setLang(lang) {
+  const d = T[lang] || T.ru;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-t]').forEach(el => { const v = d[el.dataset.t]; if (v != null) el.innerHTML = v; });
+  document.querySelectorAll('[data-shot]').forEach(img => { img.src = `assets/${lang}-${img.dataset.shot}.jpg`; });
+  document.getElementById('pp').href = d.ppHref;
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
+  document.title = lang === 'en' ? 'Ninja Battle — Битва ниндзя' : 'Битва ниндзя — Ninja Battle';
+  for (const [id, url] of [['gp', GOOGLE_PLAY_URL], ['as', APP_STORE_URL]]) {
+    const a = document.getElementById(id);
+    if (url) { a.href = url; a.classList.remove('soon'); a.removeAttribute('aria-disabled'); a.querySelector('small').textContent = id === 'gp' ? (lang === 'en' ? 'Get it on' : 'Скачать в') : (lang === 'en' ? 'Download on the' : 'Загрузить в'); }
+  }
+  try { localStorage.setItem('lang', lang); } catch (e) {}
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+const q = new URLSearchParams(location.search).get('lang');
+let saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
+const auto = /^(ru|ky|kk|uz|be|tg)/i.test(navigator.language || '') ? 'ru' : 'en';
+setLang(q === 'en' || q === 'ru' ? q : saved || auto);
+</script>
+</body>
+</html>
