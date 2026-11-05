@@ -2,191 +2,210 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Битва ниндзя — Ninja Battle</title>
-<meta name="description" content="Битва ниндзя — яркий аркадный файтинг для Android, iPhone и iPad: 30 уровней, 5 боссов, 6 ниндзя, выживание и дуэли.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Битва ниндзя — аркадный файтинг для Android, iPhone и iPad</title>
+<meta name="description" content="Битва ниндзя — яркий аркадный файтинг для Android, iPhone и iPad: 30 уровней, 5 боссов, 6 ниндзя с суперприёмами, выживание и дуэли." data-i18n-attr="content:metaDesc">
+<link rel="canonical" href="https://nurislam-abdimalikov.github.io/">
+<link rel="alternate" hreflang="ru" href="https://nurislam-abdimalikov.github.io/?lang=ru">
+<link rel="alternate" hreflang="en" href="https://nurislam-abdimalikov.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://nurislam-abdimalikov.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Битва ниндзя — Ninja Battle">
+<meta property="og:url" content="https://nurislam-abdimalikov.github.io/">
 <meta property="og:title" content="Битва ниндзя — Ninja Battle">
-<meta property="og:description" content="30 уровней, 6 ниндзя, боссы и дуэли. Открывай и прокачивай героев!">
+<meta property="og:description" content="30 уровней, 6 ниндзя, 5 боссов и дуэли. Открывай и прокачивай героев!">
 <meta property="og:image" content="https://nurislam-abdimalikov.github.io/assets/feature-ru.jpg">
-<meta name="theme-color" content="#0b0e16">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="500">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0e18">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<style>
-@font-face{font-family:Russo;src:url(assets/fonts/RussoOne-Regular.ttf) format('truetype');font-display:swap}
-:root{--bg:#0b0e16;--card:#151a26;--line:#262e40;--text:#e8ecf4;--muted:#9aa4b8;--gold:#ffd27a;--green:#5ad16b;--blue:#9fe3ff;--red:#ff6b5a}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,#2a2350 0%,rgba(42,35,80,0) 60%),var(--bg);color:var(--text);font:17px/1.6 system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif}
-a{color:var(--blue)}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
-.brand{display:flex;align-items:center;gap:12px;font-family:Russo,system-ui;font-size:20px;color:var(--gold);text-decoration:none}
-.brand img{width:44px;height:44px;border-radius:12px}
-.lang{display:flex;gap:6px}
-.lang button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font:600 14px system-ui;cursor:pointer}
-.lang button.on{color:#1a1206;background:var(--gold);border-color:var(--gold)}
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:36px;align-items:center;padding:28px 0 40px}
-h1{font-family:Russo,system-ui;font-size:clamp(40px,6vw,68px);line-height:1.02;margin:0 0 14px;color:#fff;text-shadow:0 4px 0 #3b2a10,0 0 40px rgba(255,190,90,.35)}
-h1 span{color:var(--gold)}
-.lead{font-size:20px;color:#d6dbea;margin:0 0 22px}
-.badges{display:flex;flex-wrap:wrap;gap:12px}
-.badge{display:flex;align-items:center;gap:10px;min-width:210px;padding:10px 18px;border-radius:14px;background:#000;border:1px solid #3a4258;color:#fff;text-decoration:none}
-.badge svg{width:28px;height:28px;flex:none}
-.badge small{display:block;font-size:11px;color:var(--muted);line-height:1.2;text-transform:uppercase;letter-spacing:.04em}
-.badge b{display:block;font-size:19px;line-height:1.2}
-.badge.soon{opacity:.75;cursor:default}
-.shot-main{width:100%;border-radius:18px;border:3px solid #1f2535;box-shadow:0 18px 50px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;font-weight:700}
-.stat b{color:var(--gold);font-family:Russo,system-ui;font-weight:400;margin-right:6px}
-h2{font-family:Russo,system-ui;font-weight:400;font-size:30px;margin:0 0 18px;color:#fff}
-section{padding:34px 0}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-.card h3{margin:0 0 6px;font-size:18px;color:var(--gold)}
-.card p{margin:0;color:#c9cfdd;font-size:15.5px}
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.gallery img{width:100%;border-radius:14px;border:2px solid #1f2535;display:block}
-.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.safe .card{border-left:4px solid var(--green)}
-#support .card{display:flex;flex-direction:column;gap:6px}
-.mail{font-size:20px;font-weight:700}
-details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
-summary{cursor:pointer;font-weight:700}
-footer{border-top:1px solid var(--line);margin-top:30px;padding:22px 0 40px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:10px 22px;justify-content:space-between}
-@media (max-width:860px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.safe,.gallery{grid-template-columns:1fr}}
-@media (max-width:560px){.grid{grid-template-columns:1fr}.badge{min-width:0;flex:1 1 100%}}
-</style>
+<link rel="preload" href="assets/fonts/RussoOne-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/Rubik-ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>
+/* Язык выбираем до показа страницы, чтобы не мигал русский текст */
+(function(){var l=null,d=document.documentElement;try{l=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(l!=='en'&&l!=='ru'){try{l=localStorage.getItem('lang')}catch(e){}}
+if(l!=='en'&&l!=='ru'){l=/^(ru|ky|kk|uz|be|tg)/i.test(navigator.language||'')?'ru':'en'}
+if(l==='en'){d.lang='en';d.className+=' i18n-wait';setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})();
+</script>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <a class="brand" href="./"><img src="assets/icon-192.png" alt=""><span data-t="brand">Битва ниндзя</span></a>
-    <div class="lang"><button data-lang="ru">RU</button><button data-lang="en">EN</button></div>
-  </header>
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+ <defs>
+  <linearGradient id="gTile" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe6f2"/></linearGradient>
+  <linearGradient id="gPlay" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ee37f"/><stop offset=".55" stop-color="#3fae4f"/><stop offset="1" stop-color="#1f8fb8"/></linearGradient>
+  <symbol id="i-gp" viewBox="0 0 48 48">
+   <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#gTile)" stroke="#17131d" stroke-width="3"/>
+   <path d="M17 11.6v24.8c0 1.3 1.4 2.1 2.5 1.4l20.4-12.4c1.1-.7 1.1-2.2 0-2.9L19.5 10.2c-1.1-.7-2.5.1-2.5 1.4z" fill="url(#gPlay)" stroke="#17131d" stroke-width="2.8" stroke-linejoin="round"/>
+   <path d="M20.6 15.8l12.6 7.6" stroke="#fff" stroke-opacity=".6" stroke-width="2.6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-as" viewBox="0 0 48 48">
+   <rect x="1.5" y="1.5" width="45" height="45" rx="12" fill="url(#gTile)" stroke="#17131d" stroke-width="3"/>
+   <g fill="none" stroke-linecap="round"><path d="M15.5 35.5 25.5 13" stroke="#2f7fd0" stroke-width="4.4"/><path d="M27.6 24.2 32.5 35.5" stroke="#2f7fd0" stroke-width="4.4"/><path d="M12 29.5h24" stroke="#3a8bd0" stroke-width="4.4"/></g>
+  </symbol>
+ </defs>
+</svg>
+<canvas id="fx" aria-hidden="true"></canvas>
+<a class="skip" href="#main" data-i18n="skip">К содержимому</a>
 
-  <div class="hero">
-    <div>
-      <h1 data-t="title" data-html>Битва<br><span>ниндзя</span></h1>
-      <p class="lead" data-t="lead">Яркий аркадный файтинг: проходи уровни на карте, побеждай боссов, открывай новых ниндзя и прокачивай их!</p>
-      <div class="badges">
-        <a class="badge soon" id="gp" aria-disabled="true">
-          <svg viewBox="0 0 24 24"><path fill="#34A853" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.7-.6-1.2V3c0-.5.2-1 .6-1.2z"/><path fill="#FBBC04" d="m17.3 15.5-3.5-3.5 3.5-3.5 4 2.3c1.1.6 1.1 1.8 0 2.4z"/><path fill="#4285F4" d="M17.3 15.5 13.8 12 3.6 22.2c.4.2.9.2 1.4-.1z"/><path fill="#EA4335" d="M17.3 8.5 5 1.9c-.5-.3-1-.3-1.4-.1L13.8 12z"/></svg>
-          <span><small data-t="gpSmall">Скоро в</small><b>Google Play</b></span>
-        </a>
-        <a class="badge soon" id="as" aria-disabled="true">
-          <svg viewBox="0 0 24 24"><path fill="#fff" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.9-1.1-2.9-4.2zM13.9 5.3c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg>
-          <span><small data-t="asSmall">Скоро в</small><b>App Store</b></span>
-        </a>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>30</b><span data-t="s1">уровней</span></div>
-        <div class="stat"><b>5</b><span data-t="s2">боссов</span></div>
-        <div class="stat"><b>6</b><span data-t="s3">ниндзя</span></div>
-        <div class="stat"><b>2</b><span data-t="s4">языка</span></div>
-      </div>
-    </div>
-    <img class="shot-main" data-shot="01-home" src="assets/ru-01-home.jpg" alt="">
+<header class="hdr">
+ <div class="wrap">
+  <a class="brand" href="#top" aria-label="Битва ниндзя — наверх" data-i18n-attr="aria-label:homeAria"><img data-logo src="assets/img/logo-ru.png" width="1190" height="678" alt=""></a>
+  <nav class="nav" id="nav" aria-label="Разделы сайта" data-i18n-attr="aria-label:navAria"><a href="#about" data-i18n="navAbout">Об игре</a><a href="#heroes" data-i18n="navHeroes">Герои</a><a href="#worlds" data-i18n="navWorlds">Миры и боссы</a><a href="#gallery" data-i18n="navGallery">Скриншоты</a><a href="#faq" data-i18n="navFaq">FAQ</a></nav>
+  <div class="lang" data-active="ru" role="group" aria-label="Язык" data-i18n-attr="aria-label:langAria"><i class="knob" aria-hidden="true"></i><button type="button" data-lang="ru" aria-pressed="true" lang="ru" title="Русский">RU</button><button type="button" data-lang="en" aria-pressed="false" lang="en" title="English">EN</button></div>
+  <button class="btn t-dark burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню" data-i18n-attr="aria-label:menu"><i></i><i></i><i></i></button>
+ </div>
+</header>
+
+<main id="main">
+<section class="hero" id="top">
+ <div class="hero-bg" aria-hidden="true"></div>
+ <div class="wrap hero-grid">
+  <div class="h-logo">
+   <div class="rays" aria-hidden="true"></div>
+   <h1><img class="logo" data-logo src="assets/img/logo-ru.png" width="1190" height="678" alt="Битва ниндзя" data-i18n-attr="alt:logoAlt" fetchpriority="high"></h1>
   </div>
+  <div class="h-text">
+   <p class="eyebrow"><img src="assets/icons/torii.png" width="28" height="28" alt=""><span data-i18n="eyebrow">Аркадный файтинг для Android, iPhone и iPad</span></p>
+   <p class="headline" data-i18n="headline">Стань легендой ниндзя!</p>
+   <p class="lead" data-i18n="lead">Яркий аркадный файтинг: проходи 30 уровней на карте, побеждай боссов, открывай шесть ниндзя с суперприёмами и прокачивай их!</p>
+  </div>
+  <div class="h-stage">
+   <div class="rays" aria-hidden="true"></div>
+   <div class="phone">
+    <i class="side s1" aria-hidden="true"></i><i class="side s2" aria-hidden="true"></i>
+    <div class="screen"><img class="on" data-phone="03-battle" src="assets/shots/ru/md/03-battle.jpg" srcset="assets/shots/ru/03-battle.jpg 720w, assets/shots/ru/md/03-battle.jpg 1280w" sizes="(min-width: 900px) 600px, 90vw" width="1280" height="720" alt="Скриншот игры «Битва ниндзя»" data-i18n-attr="alt:phoneAlt" fetchpriority="high"><img data-phone="05-boss" sizes="(min-width: 900px) 600px, 90vw" width="1280" height="720" alt=""><img data-phone="07-duel" sizes="(min-width: 900px) 600px, 90vw" width="1280" height="720" alt=""><img data-phone="01-home" sizes="(min-width: 900px) 600px, 90vw" width="1280" height="720" alt=""><i class="glare" aria-hidden="true"></i></div>
+   </div>
+   <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+   <span class="h-char c1" aria-hidden="true"><img src="assets/heroes/kaze.png" width="336" height="444" alt=""></span>
+   <span class="h-char c2" aria-hidden="true"><img src="assets/bosses/boss4.png" width="325" height="438" alt=""></span>
+   <span class="fl" style="--s:54px;top:3%;left:5%;--t:4.2s;--r:-10deg" aria-hidden="true"><img src="assets/icons/star.png" width="192" height="192" alt=""></span><span class="fl" style="--s:50px;top:-1%;right:14%;--t:3.6s;--d:-1s;--r:12deg" aria-hidden="true"><img src="assets/icons/coin.png" width="192" height="192" alt=""></span><span class="fl sp" style="--s:46px;top:40%;right:-2%;--t:5s;--d:-2s" aria-hidden="true"><img src="assets/icons/shuriken.png" width="192" height="192" alt=""></span><span class="fl" style="--s:42px;top:44%;left:-3%;--t:4.6s;--d:-3s;--r:8deg" aria-hidden="true"><img src="assets/icons/flame.png" width="192" height="192" alt=""></span><span class="fl" style="--s:34px;bottom:5%;left:27%;--t:3.8s;--d:-1.4s;--r:14deg" aria-hidden="true"><img src="assets/icons/star.png" width="192" height="192" alt=""></span>
+  </div>
+  <div class="h-cta">
+   <div class="stores"><a class="btn t-green store soon" data-store="gp" aria-disabled="true"><svg class="gl" aria-hidden="true" focusable="false"><use href="#i-gp"/></svg><span><small>Скоро в</small><b>Google Play</b></span><i class="soon-tag" data-i18n="soonTag">Скоро</i></a><a class="btn t-blue store soon" data-store="as" aria-disabled="true"><svg class="gl" aria-hidden="true" focusable="false"><use href="#i-as"/></svg><span><small>Скоро в</small><b>App Store</b></span><i class="soon-tag" data-i18n="soonTag">Скоро</i></a></div>
+   <ul class="perks"><li><img src="assets/icons/check.png" width="24" height="24" alt=""><span data-i18n="perk1">Бесплатно</span></li><li><img src="assets/icons/check.png" width="24" height="24" alt=""><span data-i18n="perk2">Без регистрации</span></li><li><img src="assets/icons/check.png" width="24" height="24" alt=""><span data-i18n="perk3">Играй без интернета</span></li></ul>
+  </div>
+ </div>
+ <div class="wrap"><ul class="stats"><li class="stat panel rv" style="--d:0.00s"><img src="assets/icons/map.png" width="54" height="54" alt=""><div><b data-count="30">30</b><span data-i18n="s1">уровней</span></div></li><li class="stat panel rv" style="--d:0.08s"><img src="assets/icons/trophy.png" width="54" height="54" alt=""><div><b data-count="5">5</b><span data-i18n="s2">боссов</span></div></li><li class="stat panel rv" style="--d:0.16s"><img src="assets/icons/heroes.png" width="54" height="54" alt=""><div><b data-count="6">6</b><span data-i18n="s3">ниндзя</span></div></li><li class="stat panel rv" style="--d:0.24s"><img src="assets/icons/star.png" width="54" height="54" alt=""><div><b data-count="90">90</b><span data-i18n="s4">звёзд</span></div></li></ul></div>
+</section>
 
-  <section>
-    <h2 data-t="featTitle">Что в игре</h2>
-    <div class="grid">
-      <div class="card"><h3 data-t="f1h">🗺️ Карта: 30 уровней</h3><p data-t="f1">Бамбуковая роща, храм сакуры, ночные крыши, снежный перевал и огненная крепость. До 3 звёзд за каждый уровень.</p></div>
-      <div class="card"><h3 data-t="f2h">👹 5 боссов</h3><p data-t="f2">В конце каждого мира ждёт босс со своими приёмами. Прокачай героя — и вперёд!</p></div>
-      <div class="card"><h3 data-t="f3h">🥷 6 ниндзя</h3><p data-t="f3">Торнадо, огненный дракон, гнев грома, ледяная буря, теневые клоны и буря лепестков.</p></div>
-      <div class="card"><h3 data-t="f4h">⬆️ Прокачка</h3><p data-t="f4">Улучшай здоровье, силу и энергию каждого героя за монеты, заработанные в боях.</p></div>
-      <div class="card"><h3 data-t="f5h">⚔️ Выживание и дуэли</h3><p data-t="f5">Бесконечные волны врагов или бой один на один с ниндзя-компьютером.</p></div>
-      <div class="card"><h3 data-t="f6h">🎁 Подарки каждый день</h3><p data-t="f6">Заходи каждый день — на седьмой день самый большой подарок. Сундуки за звёзды!</p></div>
-    </div>
-  </section>
+<section class="sec" id="about">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="aboutTitle">Что в игре</span></h2><p class="sec-sub" data-i18n="aboutSub">Шесть причин сыграть ещё один бой</p></header>
+  <ul class="cards"><li class="rv" style="--d:0.00s"><article class="card panel t-blue"><span class="tile"><img src="assets/icons/map.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f1h">Карта: 30 уровней</h3><p data-i18n="f1">Бамбуковая роща, храм сакуры, ночные крыши, снежный перевал и огненная крепость. До 3 звёзд за каждый уровень.</p></div></article></li><li class="rv" style="--d:0.06s"><article class="card panel t-red"><span class="tile"><img src="assets/icons/skull.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f2h">5 боссов</h3><p data-i18n="f2">В конце каждого мира ждёт босс со своими приёмами. Прокачай героя — и вперёд!</p></div></article></li><li class="rv" style="--d:0.12s"><article class="card panel t-purple"><span class="tile"><img src="assets/icons/heroes.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f3h">6 ниндзя</h3><p data-i18n="f3">Торнадо, огненный дракон, гнев грома, ледяная буря, теневые клоны и буря лепестков.</p></div></article></li><li class="rv" style="--d:0.18s"><article class="card panel t-green"><span class="tile"><img src="assets/icons/upgrade.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f4h">Прокачка</h3><p data-i18n="f4">Улучшай здоровье, силу и энергию каждого героя за монеты, заработанные в боях.</p></div></article></li><li class="rv" style="--d:0.24s"><article class="card panel t-orange"><span class="tile"><img src="assets/icons/duel.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f5h">Выживание и дуэли</h3><p data-i18n="f5">Бесконечные волны врагов или бой один на один с ниндзя-компьютером.</p></div></article></li><li class="rv" style="--d:0.30s"><article class="card panel t-gold"><span class="tile"><img src="assets/icons/gift.png" width="46" height="46" alt=""></span><div><h3 data-i18n="f6h">Подарки каждый день</h3><p data-i18n="f6">Заходи каждый день — на седьмой день самый большой подарок. Сундуки за звёзды!</p></div></article></li></ul>
+ </div>
+</section>
 
-  <section>
-    <h2 data-t="galTitle">Скриншоты</h2>
-    <div class="gallery">
-      <img data-shot="03-battle" src="assets/ru-03-battle.jpg" alt="" loading="lazy">
-      <img data-shot="05-boss" src="assets/ru-05-boss.jpg" alt="" loading="lazy">
-      <img data-shot="04-heroes" src="assets/ru-04-heroes.jpg" alt="" loading="lazy">
-      <img data-shot="07-duel" src="assets/ru-07-duel.jpg" alt="" loading="lazy">
-    </div>
-  </section>
+<section class="sec" id="heroes">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="heroesTitle">Выбери своего ниндзя</span></h2><p class="sec-sub" data-i18n="heroesSub">У каждого героя — своя стихия и свой суперприём</p></header>
+  <div class="tabs rv" role="tablist" aria-label="Герои" data-i18n-attr="aria-label:heroesTabs"><button class="tab" type="button" role="tab" id="tab-kaze" aria-selected="true" aria-controls="show" tabindex="0" style="--c:#3f8fc4"><img src="assets/heroes/kaze-head.png" width="204" height="204" alt=""><span class="tab-name">Кадзэ</span></button><button class="tab" type="button" role="tab" id="tab-homura" aria-selected="false" aria-controls="show" tabindex="-1" style="--c:#d4533a"><img src="assets/heroes/homura-head.png" width="204" height="204" alt=""><span class="tab-name">Хомура</span></button><button class="tab" type="button" role="tab" id="tab-raiden" aria-selected="false" aria-controls="show" tabindex="-1" style="--c:#d6ad2b"><img src="assets/heroes/raiden-head.png" width="204" height="204" alt=""><span class="tab-name">Райдэн</span></button><button class="tab" type="button" role="tab" id="tab-setsu" aria-selected="false" aria-controls="show" tabindex="-1" style="--c:#6f9fc0"><img src="assets/heroes/setsu-head.png" width="204" height="204" alt=""><span class="tab-name">Сэцу</span></button><button class="tab" type="button" role="tab" id="tab-kage" aria-selected="false" aria-controls="show" tabindex="-1" style="--c:#6e52b8"><img src="assets/heroes/kage-head.png" width="204" height="204" alt=""><span class="tab-name">Кагэ</span></button><button class="tab" type="button" role="tab" id="tab-sakura" aria-selected="false" aria-controls="show" tabindex="-1" style="--c:#d76f9c"><img src="assets/heroes/sakura-head.png" width="204" height="204" alt=""><span class="tab-name">Сакура</span></button></div>
+  <div class="show panel rv" id="show" role="tabpanel" aria-labelledby="tab-kaze" style="--c:#3f8fc4;--c2:#d8f1ff">
+   <div class="show-art">
+    <div class="rays" aria-hidden="true"></div>
+    <div class="show-glow" aria-hidden="true"></div>
+    <div class="show-fig"><img id="showImg" src="assets/heroes/kaze.png" width="336" height="444" alt="Кадзэ"></div>
+    <div class="ped" aria-hidden="true"></div>
+   </div>
+   <div class="show-info">
+    <span class="show-tag" id="showElem">Ниндзя ветра</span>
+    <h3 class="show-name" id="showName">Кадзэ</h3>
+    <div class="ult"><span class="tile t-gold"><img id="showUltIco" src="assets/icons/shuriken.png" width="42" height="42" alt=""></span>
+     <div><small data-i18n="superLbl">Суперприём</small><b id="showUlt">Торнадо</b><p id="showUltText">Вихрь затягивает врагов и бьёт их снова и снова.</p></div></div>
+    <div class="bars"><div class="bar-row t-red"><span data-i18n="stPow">Сила</span><div class="bar" role="img" aria-label="Сила: 3 из 5"><i></i><i></i><i></i><i></i><i></i></div></div><div class="bar-row t-blue"><span data-i18n="stSpd">Скорость</span><div class="bar" role="img" aria-label="Скорость: 4 из 5"><i></i><i></i><i></i><i></i><i></i></div></div><div class="bar-row t-green"><span data-i18n="stDef">Защита</span><div class="bar" role="img" aria-label="Защита: 3 из 5"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+    <div class="unlock"><span class="lbl" data-i18n="unlockLbl">Как открыть:</span><span class="unlock" id="showUnlock"><span class="pill"><img src="assets/icons/check.png" width="28" height="28" alt="">Есть сразу</span></span></div>
+   </div>
+  </div>
+ </div>
+</section>
 
-  <section>
-    <h2 data-t="safeTitle">Честно и безопасно</h2>
-    <div class="safe">
-      <div class="card"><h3 data-t="g1h">Для детей и семей</h3><p data-t="g1">Реклама Google AdMob — только детская и без персонализации. Ролики за награду — по желанию.</p></div>
-      <div class="card"><h3 data-t="g2h">Без регистрации</h3><p data-t="g2">Никаких имён и e-mail: прогресс хранится только на устройстве. Можно играть без интернета.</p></div>
-      <div class="card"><h3 data-t="g3h">Всё открывается бесплатно</h3><p data-t="g3">Все герои и улучшения открываются за монеты, заработанные в боях.</p></div>
-      <div class="card"><h3 data-t="g4h">Покупки — только со взрослыми</h3><p data-t="g4">На iPhone и iPad покупки защищены «родительским замком». В версии для Android платных покупок нет.</p></div>
-    </div>
-  </section>
+<section class="sec" id="worlds">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="worldsTitle">5 миров и 5 боссов</span></h2><p class="sec-sub" data-i18n="worldsSub">В каждом мире 6 уровней, а в конце ждёт босс со своими приёмами</p></header>
+  <ul class="worlds"><li class="rv" style="--d:0.00s"><article class="world panel" style="--w:#5f8f68;--wg:#7fcf8f"><div class="w-img"><img class="w-bg" src="assets/worlds/world0.jpg" width="1400" height="756" alt="" loading="lazy"><img class="w-boss" src="assets/bosses/boss0.png" width="325" height="438" alt="Мастер Такэ" data-i18n-attr="alt:b0" loading="lazy"><span class="w-num" data-i18n="wl0">Мир 1</span></div><div class="w-body"><h3 class="w-name" data-i18n="w0">Бамбуковая роща</h3><p class="w-boss-name"><img src="assets/icons/skull.png" width="28" height="28" alt=""><span><small data-i18n="bossLbl">Босс</small><span data-i18n="b0">Мастер Такэ</span></span></p><p class="w-lv" data-i18n="lv0">Уровни 1-1 — 1-6</p></div></article></li><li class="rv" style="--d:0.07s"><article class="world panel" style="--w:#b5607a;--wg:#ff8fb1"><div class="w-img"><img class="w-bg" src="assets/worlds/world1.jpg" width="1400" height="756" alt="" loading="lazy"><img class="w-boss" src="assets/bosses/boss1.png" width="325" height="438" alt="Красный Они" data-i18n-attr="alt:b1" loading="lazy"><span class="w-num" data-i18n="wl1">Мир 2</span></div><div class="w-body"><h3 class="w-name" data-i18n="w1">Храм сакуры</h3><p class="w-boss-name"><img src="assets/icons/skull.png" width="28" height="28" alt=""><span><small data-i18n="bossLbl">Босс</small><span data-i18n="b1">Красный Они</span></span></p><p class="w-lv" data-i18n="lv1">Уровни 2-1 — 2-6</p></div></article></li><li class="rv" style="--d:0.14s"><article class="world panel" style="--w:#2b3a70;--wg:#7f95ff"><div class="w-img"><img class="w-bg" src="assets/worlds/world2.jpg" width="1400" height="756" alt="" loading="lazy"><img class="w-boss" src="assets/bosses/boss2.png" width="325" height="438" alt="Ворон Карасу" data-i18n-attr="alt:b2" loading="lazy"><span class="w-num" data-i18n="wl2">Мир 3</span></div><div class="w-body"><h3 class="w-name" data-i18n="w2">Ночные крыши</h3><p class="w-boss-name"><img src="assets/icons/skull.png" width="28" height="28" alt=""><span><small data-i18n="bossLbl">Босс</small><span data-i18n="b2">Ворон Карасу</span></span></p><p class="w-lv" data-i18n="lv2">Уровни 3-1 — 3-6</p></div></article></li><li class="rv" style="--d:0.21s"><article class="world panel" style="--w:#71859f;--wg:#a9d4ff"><div class="w-img"><img class="w-bg" src="assets/worlds/world3.jpg" width="1400" height="756" alt="" loading="lazy"><img class="w-boss" src="assets/bosses/boss3.png" width="325" height="438" alt="Демон Фубуки" data-i18n-attr="alt:b3" loading="lazy"><span class="w-num" data-i18n="wl3">Мир 4</span></div><div class="w-body"><h3 class="w-name" data-i18n="w3">Снежный перевал</h3><p class="w-boss-name"><img src="assets/icons/skull.png" width="28" height="28" alt=""><span><small data-i18n="bossLbl">Босс</small><span data-i18n="b3">Демон Фубуки</span></span></p><p class="w-lv" data-i18n="lv3">Уровни 4-1 — 4-6</p></div></article></li><li class="rv" style="--d:0.28s"><article class="world panel" style="--w:#b63c1c;--wg:#ff7a3d"><div class="w-img"><img class="w-bg" src="assets/worlds/world4.jpg" width="1400" height="756" alt="" loading="lazy"><img class="w-boss" src="assets/bosses/boss4.png" width="325" height="438" alt="Тёмный сёгун" data-i18n-attr="alt:b4" loading="lazy"><span class="w-num" data-i18n="wl4">Мир 5</span></div><div class="w-body"><h3 class="w-name" data-i18n="w4">Огненная крепость</h3><p class="w-boss-name"><img src="assets/icons/skull.png" width="28" height="28" alt=""><span><small data-i18n="bossLbl">Босс</small><span data-i18n="b4">Тёмный сёгун</span></span></p><p class="w-lv" data-i18n="lv4">Уровни 5-1 — 5-6</p></div></article></li></ul>
+ </div>
+</section>
 
-  <section id="support">
-    <h2 data-t="supTitle">Поддержка</h2>
-    <div class="card">
-      <span data-t="supText">Есть вопрос, нашли ошибку или есть идея? Напишите — отвечу на русском или английском.</span>
-      <a class="mail" href="mailto:nurislanabdimalikov@gmail.com">nurislanabdimalikov@gmail.com</a>
-    </div>
-    <details><summary data-t="q1">Как вернуть «Без рекламы на 30 дней» на новом iPhone или iPad?</summary><p data-t="a1">Войдите в тот же Apple ID, откройте Магазин (или Настройки) и нажмите «Восстановить покупки» — оставшиеся дни вернутся.</p></details>
-    <details><summary data-t="q2">Как начать игру заново?</summary><p data-t="a2">Настройки → «Сбросить прогресс». Прогресс хранится только на устройстве, поэтому при удалении игры он тоже удаляется.</p></details>
-    <details><summary data-t="q3">Почему кнопка «Смотреть» серая?</summary><p data-t="a3">Рекламный ролик сейчас не загрузился (нет интернета или нет рекламы в вашем регионе) или вы уже посмотрели все ролики на сегодня. Попробуйте позже.</p></details>
-  </section>
+<section class="sec" id="gallery">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="galleryTitle">Скриншоты</span></h2><p class="sec-sub" data-i18n="gallerySub">Нажми на картинку, чтобы рассмотреть поближе</p></header>
+  <ul class="gallery"><li class="rv" style="--d:0.00s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/01-home.jpg" data-shot="01-home" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>01</b><span data-i18n="c1">Главное меню</span></span></button></li><li class="rv" style="--d:0.06s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/02-map.jpg" data-shot="02-map" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>02</b><span data-i18n="c2">Карта 30 уровней</span></span></button></li><li class="rv" style="--d:0.12s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/03-battle.jpg" data-shot="03-battle" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>03</b><span data-i18n="c3">Бой</span></span></button></li><li class="rv" style="--d:0.18s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/04-heroes.jpg" data-shot="04-heroes" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>04</b><span data-i18n="c4">Герои</span></span></button></li><li class="rv" style="--d:0.00s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/05-boss.jpg" data-shot="05-boss" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>05</b><span data-i18n="c5">Бой с боссом</span></span></button></li><li class="rv" style="--d:0.06s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/06-victory.jpg" data-shot="06-victory" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>06</b><span data-i18n="c6">Победа</span></span></button></li><li class="rv" style="--d:0.12s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/07-duel.jpg" data-shot="07-duel" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>07</b><span data-i18n="c7">Дуэль</span></span></button></li><li class="rv" style="--d:0.18s"><button class="shot-btn" type="button"><span class="frame"><img class="pic" src="assets/shots/ru/08-shop.jpg" data-shot="08-shop" width="720" height="405" alt="" loading="lazy"><img class="zoom" src="assets/icons/plus.png" width="42" height="42" alt=""></span><span class="cap"><b>08</b><span data-i18n="c8">Магазин</span></span></button></li></ul>
+ </div>
+</section>
 
-  <footer>
-    <span>© 2026 Nurislam Abdimalikov (<span data-t="devRu">Нурислам Абдималиков</span>)</span>
-    <span><a id="pp" href="privacy-policy-ru.html" data-t="pp">Политика конфиденциальности</a> · <a href="#support" data-t="sup">Поддержка</a></span>
-  </footer>
+<section class="sec" id="play">
+ <div class="wrap">
+  <div class="cta panel rv">
+   <div class="cta-bg" aria-hidden="true"></div>
+   <div class="rays" aria-hidden="true"></div>
+   <span class="cta-ch l" aria-hidden="true"><img src="assets/heroes/homura.png" width="336" height="444" alt="" loading="lazy"></span>
+   <span class="cta-ch r" aria-hidden="true"><img src="assets/heroes/sakura.png" width="336" height="444" alt="" loading="lazy"></span>
+   <h2 class="cta-title" data-i18n="ctaTitle">Готов к битве?</h2>
+   <p data-i18n="ctaText">Собери команду из шести ниндзя и пройди все пять миров!</p>
+   <div class="stores"><a class="btn t-green store soon" data-store="gp" aria-disabled="true"><svg class="gl" aria-hidden="true" focusable="false"><use href="#i-gp"/></svg><span><small>Скоро в</small><b>Google Play</b></span><i class="soon-tag" data-i18n="soonTag">Скоро</i></a><a class="btn t-blue store soon" data-store="as" aria-disabled="true"><svg class="gl" aria-hidden="true" focusable="false"><use href="#i-as"/></svg><span><small>Скоро в</small><b>App Store</b></span><i class="soon-tag" data-i18n="soonTag">Скоро</i></a></div>
+  </div>
+ </div>
+</section>
+
+<section class="sec" id="safe">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="safeTitle">Честно и безопасно</span></h2><p class="sec-sub" data-i18n="safeSub">Сделано для детей и родителей</p></header>
+  <ul class="cards four"><li class="rv" style="--d:0.00s"><article class="card panel t-green"><span class="tile"><img src="assets/icons/shield.png" width="46" height="46" alt=""></span><div><h3 data-i18n="g1h">Для детей и семей</h3><p data-i18n="g1">Реклама Google AdMob — только детская и без персонализации. Ролики за награду — по желанию.</p></div></article></li><li class="rv" style="--d:0.06s"><article class="card panel t-blue"><span class="tile"><img src="assets/icons/check.png" width="46" height="46" alt=""></span><div><h3 data-i18n="g2h">Без регистрации</h3><p data-i18n="g2">Никаких имён и e-mail: прогресс хранится только на устройстве. Можно играть без интернета.</p></div></article></li><li class="rv" style="--d:0.12s"><article class="card panel t-gold"><span class="tile"><img src="assets/icons/coins.png" width="46" height="46" alt=""></span><div><h3 data-i18n="g3h">Всё открывается бесплатно</h3><p data-i18n="g3">Все герои и улучшения открываются за монеты, заработанные в боях.</p></div></article></li><li class="rv" style="--d:0.18s"><article class="card panel t-purple"><span class="tile"><img src="assets/icons/parent.png" width="46" height="46" alt=""></span><div><h3 data-i18n="g4h">Покупки — только со взрослыми</h3><p data-i18n="g4">На iPhone и iPad покупки защищены «родительским замком». В версии для Android платных покупок нет.</p></div></article></li></ul>
+ </div>
+</section>
+
+<section class="sec" id="faq">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="faqTitle">Частые вопросы</span></h2></header>
+  <div class="faq"><div class="qa panel rv"><h3><button class="q" type="button" id="q1" aria-expanded="false" aria-controls="a1"><span data-i18n="q1">Как вернуть «Без рекламы на 30 дней» на новом iPhone или iPad?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a1" role="region" aria-labelledby="q1"><div><p data-i18n="a1">Войдите в тот же Apple ID, откройте Магазин (или Настройки) и нажмите «Восстановить покупки» — оставшиеся дни вернутся.</p></div></div></div><div class="qa panel rv"><h3><button class="q" type="button" id="q2" aria-expanded="false" aria-controls="a2"><span data-i18n="q2">Как начать игру заново?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a2" role="region" aria-labelledby="q2"><div><p data-i18n="a2">Настройки → «Сбросить прогресс». Прогресс хранится только на устройстве, поэтому при удалении игры он тоже удаляется.</p></div></div></div><div class="qa panel rv"><h3><button class="q" type="button" id="q3" aria-expanded="false" aria-controls="a3"><span data-i18n="q3">Почему кнопка «Смотреть» серая?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a3" role="region" aria-labelledby="q3"><div><p data-i18n="a3">Рекламный ролик сейчас не загрузился (нет интернета или нет рекламы в вашем регионе) или вы уже посмотрели все ролики на сегодня. Попробуйте позже.</p></div></div></div><div class="qa panel rv"><h3><button class="q" type="button" id="q4" aria-expanded="false" aria-controls="a4"><span data-i18n="q4">Нужен ли интернет?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a4" role="region" aria-labelledby="q4"><div><p data-i18n="a4">Нет, играть можно и без интернета. Он нужен только для рекламы и роликов за награду (и для покупок на iPhone и iPad).</p></div></div></div><div class="qa panel rv"><h3><button class="q" type="button" id="q5" aria-expanded="false" aria-controls="a5"><span data-i18n="q5">На каких устройствах работает игра?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a5" role="region" aria-labelledby="q5"><div><p data-i18n="a5">На телефонах и планшетах с Android 7.0 и новее, а также на iPhone и iPad с iOS / iPadOS 15.1 и новее.</p></div></div></div><div class="qa panel rv"><h3><button class="q" type="button" id="q6" aria-expanded="false" aria-controls="a6"><span data-i18n="q6">Есть ли в игре платные покупки?</span><img src="assets/icons/plus.png" width="36" height="36" alt=""></button></h3><div class="a" id="a6" role="region" aria-labelledby="q6"><div><p data-i18n="a6">В версии для Android — нет. В версии для iPhone и iPad можно купить пакеты монет и пропуск «Без рекламы на 30 дней», но только после «родительского замка». Всех героев можно открыть и бесплатно — за монеты из боёв.</p></div></div></div></div>
+ </div>
+</section>
+
+<section class="sec" id="support">
+ <div class="wrap">
+  <header class="sec-head rv"><h2 class="ribbon"><span data-i18n="supTitle">Поддержка</span></h2></header>
+  <div class="support panel rv">
+   <span class="tile t-red"><img src="assets/icons/heart.png" width="58" height="58" alt=""></span>
+   <div><p data-i18n="supText">Есть вопрос, нашли ошибку или есть идея? Напишите — отвечу на русском или английском.</p><a class="mail" href="mailto:nurislanabdimalikov@gmail.com">nurislanabdimalikov@gmail.com</a></div>
+   <div class="acts">
+    <a class="btn t-gold" href="mailto:nurislanabdimalikov@gmail.com?subject=Ninja%20Battle"><span data-i18n="supBtn">Написать письмо</span><img src="assets/icons/next.png" width="30" height="30" alt=""></a>
+    <a class="btn t-dark" data-pp href="privacy-policy-ru.html"><img src="assets/icons/shield.png" width="30" height="30" alt=""><span data-i18n="supPp">Политика конфиденциальности</span></a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="ftr">
+ <div class="wrap">
+  <a href="#top" class="brand"><img class="flogo" data-logo src="assets/img/logo-ru.png" width="1190" height="678" alt="Битва ниндзя" data-i18n-attr="alt:logoAlt" loading="lazy"></a>
+  <nav aria-label="Ссылки" data-i18n-attr="aria-label:ftAria"><a data-pp href="privacy-policy-ru.html" data-i18n="ftPp">Политика конфиденциальности</a><a href="#support" data-i18n="ftSup">Поддержка</a><a href="#faq">FAQ</a><a href="mailto:nurislanabdimalikov@gmail.com">nurislanabdimalikov@gmail.com</a></nav>
+  <p class="copy" data-i18n="ftCopy">© 2026 Нурислам Абдималиков · «Битва ниндзя»</p>
+  <p class="legal"><span data-i18n="ftTm">Google Play — товарный знак Google LLC. App Store — товарный знак Apple Inc.</span> <span data-i18n="ftFonts">Шрифты Russo One и Rubik — по лицензии SIL Open Font License:</span> <a href="assets/fonts/OFL-RussoOne.txt">Russo One</a>, <a href="assets/fonts/OFL-Rubik.txt">Rubik</a>.</p>
+ </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Просмотр скриншотов" data-i18n-attr="aria-label:lbAria">
+ <div class="lb-top"><span class="lb-count" id="lbCount">1 / 8</span><button class="lb-x" id="lbClose" type="button" aria-label="Закрыть" data-i18n-attr="aria-label:lbClose"><img src="assets/icons/close.png" width="54" height="54" alt=""></button></div>
+ <div class="lb-stage">
+  <button class="btn t-dark btn-sq lb-prev" id="lbPrev" type="button" aria-label="Предыдущий скриншот" data-i18n-attr="aria-label:lbPrev"><img src="assets/icons/back.png" width="30" height="30" alt=""></button>
+  <figure class="lb-fig"><img id="lbImg" width="1920" height="1080" alt="" draggable="false"><figcaption class="lb-cap" id="lbCap"></figcaption></figure>
+  <button class="btn t-dark btn-sq lb-next" id="lbNext" type="button" aria-label="Следующий скриншот" data-i18n-attr="aria-label:lbNext"><img src="assets/icons/next.png" width="30" height="30" alt=""></button>
+ </div>
 </div>
 
+<script type="application/json" id="nb-data">{"en":{"docTitle":"Ninja Battle — arcade fighting game for Android, iPhone and iPad","metaDesc":"Ninja Battle is a bright arcade fighting game for Android, iPhone and iPad: 30 levels, 5 bosses, 6 ninjas with super moves, survival and duels.","skip":"Skip to content","homeAria":"Ninja Battle — back to top","navAria":"Site sections","navAbout":"About","navHeroes":"Heroes","navWorlds":"Worlds & bosses","navGallery":"Screenshots","navFaq":"FAQ","menu":"Menu","langAria":"Language","logoAlt":"Ninja Battle","eyebrow":"Arcade fighting game for Android, iPhone and iPad","headline":"Become a ninja legend!","lead":"A bright arcade fighting game: clear 30 levels on the map, defeat bosses, unlock six ninjas with super moves and upgrade them!","soonTag":"Soon","perk1":"Free to play","perk2":"No sign-up","perk3":"Plays offline","phoneAlt":"Ninja Battle game screenshot","s1":"levels","s2":"bosses","s3":"ninjas","s4":"stars","aboutTitle":"What's inside","aboutSub":"Six reasons to play one more battle","f1h":"Map: 30 levels","f1":"Bamboo Grove, Sakura Temple, Night Rooftops, Snowy Pass and Fire Fortress. Up to 3 stars on every level.","f2h":"5 bosses","f2":"Every world ends with a boss with its own moves. Upgrade your hero and go!","f3h":"6 ninjas","f3":"Tornado, Fire Dragon, Thunder Wrath, Ice Storm, Shadow Clones and Petal Storm.","f4h":"Upgrades","f4":"Boost every hero's health, power and energy with coins earned in battles.","f5h":"Survival and duels","f5":"Endless waves of enemies or a one-on-one fight against a computer ninja.","f6h":"Daily gifts","f6":"Come back every day — the biggest gift waits on day seven. Star chests too!","heroesTitle":"Choose your ninja","heroesSub":"Every hero has an element and a super move of their own","heroesTabs":"Heroes","superLbl":"Super move","stPow":"Power","stSpd":"Speed","stDef":"Defense","unlockLbl":"How to unlock:","worldsTitle":"5 worlds and 5 bosses","worldsSub":"Each world has 6 levels, and a boss with special moves waits at the end","bossLbl":"Boss","galleryTitle":"Screenshots","gallerySub":"Tap a picture to see it up close","c1":"Main menu","c2":"Map of 30 levels","c3":"Battle","c4":"Heroes","c5":"Boss fight","c6":"Victory","c7":"Duel","c8":"Shop","ctaTitle":"Ready to fight?","ctaText":"Gather all six ninjas and conquer all five worlds!","safeTitle":"Fair and safe","safeSub":"Made for kids and parents","g1h":"For kids and families","g1":"Google AdMob ads are child-directed and non-personalized. Reward videos are optional.","g2h":"No sign-up","g2":"No names or e-mails: progress is stored only on the device. Works offline.","g3h":"Everything unlocks for free","g3":"Every hero and upgrade unlocks with coins earned in battles.","g4h":"Purchases only with a grown-up","g4":"On iPhone and iPad purchases are protected by a parental gate. The Android version has no paid purchases.","faqTitle":"Frequently asked questions","q1":"How do I get \"No Ads for 30 Days\" back on a new iPhone or iPad?","a1":"Sign in with the same Apple ID, open the Shop (or Settings) and tap \"Restore purchases\" — the remaining days come back.","q2":"How do I start over?","a2":"Settings → \"Reset progress\". Progress is stored only on the device, so deleting the game deletes it too.","q3":"Why is the \"Watch\" button grey?","a3":"The video ad didn't load (no internet or no ads in your region) or you have watched all videos for today. Try again later.","q4":"Do I need the internet?","a4":"No, the game works offline. The internet is only needed for ads and reward videos (and for purchases on iPhone and iPad).","q5":"Which devices are supported?","a5":"Phones and tablets with Android 7.0 or later, and iPhone and iPad with iOS / iPadOS 15.1 or later.","q6":"Are there paid purchases in the game?","a6":"Not in the Android version. In the iPhone and iPad version you can buy coin packs and the \"No Ads for 30 Days\" pass, but only after a parental gate. All heroes can also be unlocked for free with coins earned in battles.","supTitle":"Support","supText":"Have a question, found a bug or have an idea? Write to me — I answer in English or Russian.","supBtn":"Send an e-mail","supPp":"Privacy Policy","ftAria":"Links","ftPp":"Privacy Policy","ftSup":"Support","ftCopy":"© 2026 Nurislam Abdimalikov · Ninja Battle","ftTm":"Google Play is a trademark of Google LLC. App Store is a trademark of Apple Inc.","ftFonts":"Fonts Russo One and Rubik are licensed under the SIL Open Font License:","lbAria":"Screenshot viewer","lbClose":"Close","lbPrev":"Previous screenshot","lbNext":"Next screenshot","wl0":"World 1","w0":"Bamboo Grove","b0":"Master Take","lv0":"Levels 1-1 – 1-6","wl1":"World 2","w1":"Sakura Temple","b1":"Red Oni","lv1":"Levels 2-1 – 2-6","wl2":"World 3","w2":"Night Rooftops","b2":"Karasu the Crow","lv2":"Levels 3-1 – 3-6","wl3":"World 4","w3":"Snowy Pass","b3":"Fubuki the Demon","lv3":"Levels 4-1 – 4-6","wl4":"World 5","w4":"Fire Fortress","b4":"Dark Shogun","lv4":"Levels 5-1 – 5-6"},"ui":{"ru":{"soonTo":"Скоро в","gpGet":"Скачать в","asGet":"Загрузить в","free":"Есть сразу","coins":"монет","after":"после уровня","of":"из"},"en":{"soonTo":"Coming soon to","gpGet":"Get it on","asGet":"Download on the","free":"Available from the start","coins":"coins","after":"after level","of":"of"}},"heroes":[{"id":"kaze","c":"#3f8fc4","c2":"#d8f1ff","st":[3,4,3],"price":0,"lvl":null,"ico":"shuriken","ru":{"n":"Кадзэ","e":"Ниндзя ветра","u":"Торнадо","t":"Вихрь затягивает врагов и бьёт их снова и снова."},"en":{"n":"Kaze","e":"Wind ninja","u":"Tornado","t":"A whirlwind pulls enemies in and hits them again and again."}},{"id":"homura","c":"#d4533a","c2":"#ffd27a","st":[5,3,3],"price":300,"lvl":"1-3","ico":"flame","ru":{"n":"Хомура","e":"Ниндзя огня","u":"Огненный дракон","t":"Дракон пролетает через всю арену и поджигает врагов."},"en":{"n":"Homura","e":"Fire ninja","u":"Fire Dragon","t":"A dragon flies across the arena and sets enemies on fire."}},{"id":"raiden","c":"#d6ad2b","c2":"#fff4b0","st":[3,5,2],"price":800,"lvl":"1-6","ico":"bolt","ru":{"n":"Райдэн","e":"Ниндзя молнии","u":"Гнев грома","t":"Молния бьёт каждого врага на арене и оглушает его."},"en":{"n":"Raiden","e":"Lightning ninja","u":"Thunder Wrath","t":"Lightning strikes every enemy in the arena and stuns them."}},{"id":"setsu","c":"#6f9fc0","c2":"#bfeaff","st":[3,2,5],"price":1500,"lvl":"2-6","ico":"ki","ru":{"n":"Сэцу","e":"Ниндзя льда","u":"Ледяная буря","t":"Замораживает всех врагов. Ледяные сюрикены замедляют."},"en":{"n":"Setsu","e":"Ice ninja","u":"Ice Storm","t":"Freezes all enemies. Ice shuriken slow them down."}},{"id":"kage","c":"#6e52b8","c2":"#d9ccff","st":[4,4,2],"price":2500,"lvl":"3-6","ico":"heroes","ru":{"n":"Кагэ","e":"Ниндзя тени","u":"Теневые клоны","t":"Два теневых клона сражаются вместе с тобой."},"en":{"n":"Kage","e":"Shadow ninja","u":"Shadow Clones","t":"Two shadow clones fight by your side."}},{"id":"sakura","c":"#d76f9c","c2":"#ffe0ec","st":[2,4,4],"price":3500,"lvl":"4-6","ico":"heart","ru":{"n":"Сакура","e":"Ниндзя цветов","u":"Буря лепестков","t":"Лечит тебя и ранит врагов вокруг. Тройной прыжок."},"en":{"n":"Sakura","e":"Blossom ninja","u":"Petal Storm","t":"Heals you and hurts nearby enemies. Triple jump."}}],"shots":["01-home","02-map","03-battle","04-heroes","05-boss","06-victory","07-duel","08-shop"]}</script>
 <script>
-// Когда игра выйдет — вставь ссылки сюда, и значки «Скоро» станут кнопками «Скачать»:
+// Когда игра выйдет — вставь ссылки между кавычками, и значки «Скоро» сами станут кнопками «Скачать»:
 const GOOGLE_PLAY_URL = ''; // например https://play.google.com/store/apps/details?id=com.bitvaninja.game
 const APP_STORE_URL = '';   // например https://apps.apple.com/app/id1234567890
-
-const T = {
-  en: {
-    brand: 'Ninja Battle', title: 'Ninja<br><span>Battle</span>',
-    lead: 'A bright arcade fighting game: clear levels on the map, defeat bosses, unlock new ninjas and upgrade them!',
-    gpSmall: 'Coming soon to', asSmall: 'Coming soon to', s1: 'levels', s2: 'bosses', s3: 'ninjas', s4: 'languages',
-    featTitle: "What's inside", f1h: '🗺️ Map: 30 levels', f1: 'Bamboo Grove, Sakura Temple, Night Rooftops, Snowy Pass and Fire Fortress. Up to 3 stars on every level.',
-    f2h: '👹 5 bosses', f2: 'Every world ends with a boss with its own moves. Upgrade your hero and go!',
-    f3h: '🥷 6 ninjas', f3: 'Tornado, Fire Dragon, Thunder Wrath, Ice Storm, Shadow Clones and Petal Storm.',
-    f4h: '⬆️ Upgrades', f4: "Boost every hero's health, power and energy with coins earned in battles.",
-    f5h: '⚔️ Survival and duels', f5: 'Endless waves of enemies or a one-on-one fight against a computer ninja.',
-    f6h: '🎁 Daily gifts', f6: 'Come back every day — the biggest gift waits on day seven. Star chests too!',
-    galTitle: 'Screenshots', safeTitle: 'Fair and safe',
-    g1h: 'For kids and families', g1: 'Google AdMob ads are child-directed and non-personalized. Reward videos are optional.',
-    g2h: 'No sign-up', g2: 'No names or e-mails: progress is stored only on the device. Works offline.',
-    g3h: 'Everything unlocks for free', g3: 'Every hero and upgrade unlocks with coins earned in battles.',
-    g4h: 'Purchases only with a grown-up', g4: 'On iPhone and iPad purchases are protected by a parental gate. The Android version has no paid purchases.',
-    supTitle: 'Support', supText: 'Have a question, found a bug or have an idea? Write to me — I answer in English or Russian.',
-    q1: 'How do I get "No Ads for 30 Days" back on a new iPhone or iPad?', a1: 'Sign in with the same Apple ID, open the Shop (or Settings) and tap "Restore purchases" — the remaining days come back.',
-    q2: 'How do I start over?', a2: 'Settings → "Reset progress". Progress is stored only on the device, so deleting the game deletes it too.',
-    q3: 'Why is the "Watch" button grey?', a3: "The video ad didn't load (no internet or no ads in your region) or you have watched all videos for today. Try again later.",
-    devRu: 'Нурислам Абдималиков', pp: 'Privacy Policy', sup: 'Support', ppHref: 'privacy-policy-en.html',
-  },
-};
-const ru = {}; document.querySelectorAll('[data-t]').forEach(el => { ru[el.dataset.t] = el.innerHTML; });
-ru.ppHref = 'privacy-policy-ru.html'; ru.gpSmall = 'Скоро в'; ru.asSmall = 'Скоро в';
-T.ru = ru;
-function setLang(lang) {
-  const d = T[lang] || T.ru;
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-t]').forEach(el => { const v = d[el.dataset.t]; if (v != null) el.innerHTML = v; });
-  document.querySelectorAll('[data-shot]').forEach(img => { img.src = `assets/${lang}-${img.dataset.shot}.jpg`; });
-  document.getElementById('pp').href = d.ppHref;
-  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === lang));
-  document.title = lang === 'en' ? 'Ninja Battle — Битва ниндзя' : 'Битва ниндзя — Ninja Battle';
-  for (const [id, url] of [['gp', GOOGLE_PLAY_URL], ['as', APP_STORE_URL]]) {
-    const a = document.getElementById(id);
-    if (url) { a.href = url; a.classList.remove('soon'); a.removeAttribute('aria-disabled'); a.querySelector('small').textContent = id === 'gp' ? (lang === 'en' ? 'Get it on' : 'Скачать в') : (lang === 'en' ? 'Download on the' : 'Загрузить в'); }
-  }
-  try { localStorage.setItem('lang', lang); } catch (e) {}
-}
-document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-const q = new URLSearchParams(location.search).get('lang');
-let saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
-const auto = /^(ru|ky|kk|uz|be|tg)/i.test(navigator.language || '') ? 'ru' : 'en';
-setLang(q === 'en' || q === 'ru' ? q : saved || auto);
 </script>
+<script src="assets/fx.js"></script>
+<script src="assets/site.js"></script>
 </body>
 </html>
